@@ -1,0 +1,5 @@
+~/Downloads/skills-main ❯ cat .gitignore
+.DS_Store
+__pycache__/
+.idea/
+.vscode/
