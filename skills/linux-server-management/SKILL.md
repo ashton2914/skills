@@ -50,6 +50,11 @@ If a specific service (e.g., Nginx, memory, MySQL) is reported as down or unresp
 3.  **Configuration Test:** If the service is a web server or database with a syntax checking command (e.g., `nginx -t`, `apachectl configtest`), run it to rule out configuration errors.
 4.  **Port Check:** If the service is running but unreachable, use `ss -tulpn | grep <expected_port>` to ensure it is actually binding to the correct interface and port.
 
+### Testing Network Connectivity
+When asked to test the connection status from the server to another IP address or hostname:
+1.  **Basic Reachability & Latency:** Run `ping -c 4 <target_ip>` to check if the target responds to ICMP requests. Analyze the output for packet loss and average round-trip time.
+2.  **Route Tracing & Bottlenecks:** Run `traceroute <target_ip>` to trace the network path the packets take to the destination. This is crucial for identifying exactly where a connection drops or experiences high latency along the route.
+
 ## Essential Commands Reference
 
 *   **Process Management:** `ps aux`, `top`, `htop`, `kill`, `killall`, `pkill`
